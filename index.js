@@ -8,11 +8,19 @@ app.use(express.json());
 
 const DB_FILE = "/var/data/database.json";
 
-// Database laden of aanmaken
+// ---------------------------
+// DATABASE LADEN OF AANMAKEN
+// ---------------------------
 async function loadDB() {
+  // Zorg dat de map bestaat
+  await fs.ensureDir("/var/data");
+
+  // Als database.json niet bestaat → aanmaken
   if (!(await fs.pathExists(DB_FILE))) {
     await fs.writeJson(DB_FILE, { tags: [], scans: {} }, { spaces: 2 });
   }
+
+  // Database inlezen
   return fs.readJson(DB_FILE);
 }
 
