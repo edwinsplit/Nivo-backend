@@ -9,7 +9,7 @@ app.use(express.json());
 const DB_FILE = "/var/data/database.json";
 
 // ---------------------------
-// DATABASE LADEN OF AANMAKEN
+// DATABASE LADEN OF AANMAKEN test
 // ---------------------------
 async function loadDB() {
   // Zorg dat de map bestaat
